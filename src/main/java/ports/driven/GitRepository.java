@@ -12,5 +12,4 @@ public interface GitRepository {
 
     List<MergeRequest> getMergeRequests(long projectID, MergeRequest.STATUS status);
 
-
 }

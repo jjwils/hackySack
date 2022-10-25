@@ -28,4 +28,6 @@ public class FakeGitRepository implements GitRepository {
     public List<MergeRequest> getMergeRequests(long projectID, MergeRequest.STATUS status) {
         return mergeRequestsMap.values().stream().filter(mergeRequest -> mergeRequest.getStatus() == MergeRequest.STATUS.MERGED).toList();
     }
+
+
 }
