@@ -3,6 +3,8 @@ package application;
 import ports.driven.GitRepository;
 import ports.driver.MergeRequest;
 
+import java.util.List;
+
 public class GitAnalyserApp {
 
     final GitRepository gitRepository;
@@ -11,9 +13,13 @@ public class GitAnalyserApp {
         this.gitRepository = gitRepository;
     }
 
-    public MergeRequest getMergeRequests(long mergeRequestID) {
+    public MergeRequest getMergeRequest(long mergeRequestID) {
 
-        return gitRepository.getMergeRequests(mergeRequestID);
+        return gitRepository.getMergeRequest(mergeRequestID);
 
+    }
+
+    public List<MergeRequest> getMergeRequests(long projectID) {
+        return gitRepository.getMergeRequests(projectID);
     }
 }

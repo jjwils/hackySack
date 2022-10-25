@@ -2,9 +2,15 @@ package ports.driven;
 
 import ports.driver.MergeRequest;
 
+import java.util.List;
+
 public interface GitRepository {
 
-    void addMergeRequest(long  mergeRequestID, long projectID);
+    void addMergeRequest(MergeRequest mergeRequest);
 
-    MergeRequest getMergeRequests(long projectID);
+    MergeRequest getMergeRequest(long projectID);
+
+    List<MergeRequest> getMergeRequests(long projectID);
+
+
 }

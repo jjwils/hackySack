@@ -6,6 +6,14 @@ public class MergeRequest {
     private final long id;
     private final long projectID;
 
+    public long getId() {
+        return id;
+    }
+
+    public long getProjectID() {
+        return projectID;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
