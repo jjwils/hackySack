@@ -22,18 +22,20 @@ public class ViewMergeRequestsTest {
         long mergeRequestID = 200L;
         long projectID = 100L;
 
+        MergeRequest mergeRequest = new MergeRequest(mergeRequestID, projectID);
+
         //given mergeRequests exist
-        fakeGitRepository.addMergeRequest(new MergeRequest(mergeRequestID, projectID));
+        fakeGitRepository.addMergeRequest(mergeRequest);
 
         //and we know what we expect
-        var expectedMergeRequestResult = new MergeRequest(mergeRequestID, projectID);
+        var expectedMergeRequestResult = mergeRequest;
 
         //when
         GitAnalyserApp gitAnalyserApp = new GitAnalyserApp(fakeGitRepository);
-        var mergeRequest = gitAnalyserApp.getMergeRequest(mergeRequestID);
+        var mergeRequestResult = gitAnalyserApp.getMergeRequest(mergeRequestID);
 
         //then
-        assertThat(mergeRequest).isEqualTo(expectedMergeRequestResult);
+        assertThat(mergeRequestResult).isEqualTo(expectedMergeRequestResult);
     }
 
         @Test
