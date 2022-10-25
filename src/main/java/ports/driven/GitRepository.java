@@ -8,7 +8,7 @@ public interface GitRepository {
 
     void addMergeRequest(MergeRequest mergeRequest);
 
-    MergeRequest getMergeRequest(long projectID);
+    MergeRequest getMergeRequest(long mergeRequestID);
 
     List<MergeRequest> getMergeRequests(long projectID);
 
