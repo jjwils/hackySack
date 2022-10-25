@@ -25,10 +25,11 @@ public class ViewMergeRequestsTest {
         //given mergeRequests exist
         fakeGitRepository.addMergeRequest(new MergeRequest(mergeRequestID, projectID));
 
+        //and we know what we expect
         var expectedMergeRequestResult = new MergeRequest(mergeRequestID, projectID);
 
-        GitAnalyserApp gitAnalyserApp = new GitAnalyserApp(fakeGitRepository);
         //when
+        GitAnalyserApp gitAnalyserApp = new GitAnalyserApp(fakeGitRepository);
         var mergeRequest = gitAnalyserApp.getMergeRequest(mergeRequestID);
 
         //then
@@ -51,14 +52,15 @@ public class ViewMergeRequestsTest {
             fakeGitRepository.addMergeRequest(mergeRequest2);
             fakeGitRepository.addMergeRequest(mergeRequest3);
 
+            //and we know what we expect
             List<MergeRequest> expectedMergeRequestList = new ArrayList<>();
             expectedMergeRequestList.add(mergeRequest1);
             expectedMergeRequestList.add(mergeRequest2);
             expectedMergeRequestList.add(mergeRequest3);
 
 
-            GitAnalyserApp gitAnalyserApp = new GitAnalyserApp(fakeGitRepository);
             //when
+            GitAnalyserApp gitAnalyserApp = new GitAnalyserApp(fakeGitRepository);
             var mergeRequests = gitAnalyserApp.getMergeRequests(projectID);
 
             //then
