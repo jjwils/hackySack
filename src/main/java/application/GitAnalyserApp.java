@@ -19,7 +19,7 @@ public class GitAnalyserApp {
 
     }
 
-    public List<MergeRequest> getMergeRequests(long projectID) {
-        return gitRepository.getMergeRequests(projectID);
+    public List<MergeRequest> getMergeRequests(long projectID, MergeRequest.STATUS status) {
+        return gitRepository.getMergeRequests(projectID, status);
     }
 }

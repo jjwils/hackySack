@@ -10,7 +10,7 @@ public interface GitRepository {
 
     MergeRequest getMergeRequest(long mergeRequestID);
 
-    List<MergeRequest> getMergeRequests(long projectID);
+    List<MergeRequest> getMergeRequests(long projectID, MergeRequest.STATUS status);
 
 
 }
