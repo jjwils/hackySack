@@ -4,7 +4,7 @@ import ports.driver.MergeRequest;
 
 public interface GitRepository {
 
-    void addMergeRequest(long projectID,long  mergeRequestID);
+    void addMergeRequest(long  mergeRequestID, long projectID);
 
     MergeRequest getMergeRequests(long projectID);
 }
