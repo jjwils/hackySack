@@ -26,7 +26,7 @@ public class GitAnalyserTest {
         long mergeRequestID = 200L;
         long projectID = 100L;
 
-        MergeRequest mergeRequest = new MergeRequest(mergeRequestID, projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 2, 10, 12, 13, 14));
+        MergeRequest mergeRequest = new MergeRequest(mergeRequestID, projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 2, 10, 12, 13, 14), LocalDateTime.of(2022, 3, 10, 9, 2, 55));
 
         //given mergeRequests exist
         fakeGitRepository.addMergeRequest(mergeRequest);
@@ -48,9 +48,9 @@ public class GitAnalyserTest {
             long mergeRequestID = 200L;
             long projectID = 100L;
 
-            MergeRequest mergeRequest1 = new MergeRequest(mergeRequestID,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 2, 10, 12, 13, 14));
-            MergeRequest mergeRequest2 = new MergeRequest(mergeRequestID+1,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 2, 10, 12, 13, 14));
-            MergeRequest mergeRequest3 = new MergeRequest(mergeRequestID+2,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 2, 10, 12, 13, 14));
+            MergeRequest mergeRequest1 = new MergeRequest(mergeRequestID,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 2, 10, 12, 13, 14), LocalDateTime.of(2022, 3, 10, 9, 2, 55));
+            MergeRequest mergeRequest2 = new MergeRequest(mergeRequestID+1,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 2, 10, 12, 13, 14), LocalDateTime.of(2022, 3, 10, 9, 2, 55));
+            MergeRequest mergeRequest3 = new MergeRequest(mergeRequestID+2,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 2, 10, 12, 13, 14), LocalDateTime.of(2022, 3, 10, 9, 2, 55));
 
 
             //given mergeRequests exist
@@ -81,9 +81,21 @@ public class GitAnalyserTest {
         long projectID = 100L;
 
 
-        MergeRequest mergeRequest1 = new MergeRequest(mergeRequestID,projectID, MergeRequestStatus.OPEN, LocalDateTime.of(2022, 2, 10, 12, 13, 14));
-        MergeRequest mergeRequest2 = new MergeRequest(mergeRequestID+1,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 2, 10, 12, 13, 14));
-        MergeRequest mergeRequest3 = new MergeRequest(mergeRequestID+2,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 2, 10, 12, 13, 14));
+        MergeRequest mergeRequest1 = new MergeRequest(mergeRequestID,
+                projectID,
+                MergeRequestStatus.OPEN,
+                LocalDateTime.of(2022, 2, 10, 12, 13, 14),
+               null);
+        MergeRequest mergeRequest2 = new MergeRequest(mergeRequestID+1,
+                projectID,
+                MergeRequestStatus.MERGED,
+                LocalDateTime.of(2022, 2, 10, 12, 13, 14),
+               null);
+        MergeRequest mergeRequest3 = new MergeRequest(mergeRequestID+2,
+                projectID,
+                MergeRequestStatus.MERGED,
+                LocalDateTime.of(2022, 2, 10, 12, 13, 14),
+               null);
 
 
         //given mergeRequests exist
@@ -114,9 +126,21 @@ public class GitAnalyserTest {
         long projectID = 100L;
 
 
-        MergeRequest mergeRequest1 = new MergeRequest(mergeRequestID,projectID, MergeRequestStatus.OPEN, LocalDateTime.of(2022,2,10,12,13,14));
-        MergeRequest mergeRequest2 = new MergeRequest(mergeRequestID+1,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 3, 11, 12, 13, 14));
-        MergeRequest mergeRequest3 = new MergeRequest(mergeRequestID+2,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 4, 12, 12, 13, 14));
+        MergeRequest mergeRequest1 = new MergeRequest(mergeRequestID,
+                projectID,
+                MergeRequestStatus.OPEN,
+                LocalDateTime.of(2022,2,10,12,13,14),
+               null);
+        MergeRequest mergeRequest2 = new MergeRequest(mergeRequestID+1,
+                projectID,
+                MergeRequestStatus.MERGED,
+                LocalDateTime.of(2022, 3, 11, 12, 13, 14),
+                null);
+        MergeRequest mergeRequest3 = new MergeRequest(mergeRequestID+2,
+                projectID,
+                MergeRequestStatus.MERGED,
+                LocalDateTime.of(2022, 4, 12, 12, 13, 14),
+               null);
 
         mergeRequest2.setMergedAt(LocalDateTime.of(2022,3,12,3,01,56));
         mergeRequest3.setMergedAt(LocalDateTime.of(2022,4,12,15,34,45));
@@ -146,7 +170,11 @@ public class GitAnalyserTest {
         long mergeRequestID = 200L;
         long projectID = 100L;
 
-        MergeRequest mergeRequest = new MergeRequest(mergeRequestID,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 3, 11, 12, 13, 14));
+        MergeRequest mergeRequest = new MergeRequest(mergeRequestID,
+                projectID,
+                MergeRequestStatus.MERGED,
+                LocalDateTime.of(2022, 3, 11, 12, 13, 14),
+                null);
 
         //then (we expect this wait time in seconds)
         assertThat(mergeRequest.waitTime()).isEqualTo(-1);
@@ -160,13 +188,35 @@ public class GitAnalyserTest {
         long mergeRequestID = 200L;
         long projectID = 100L;
 
-        MergeRequest mergeRequest = new MergeRequest(mergeRequestID,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 3, 11, 12, 13, 14));
+        MergeRequest mergeRequest = new MergeRequest(mergeRequestID,
+                projectID,
+                MergeRequestStatus.MERGED,
+                LocalDateTime.of(2022, 3, 11, 12, 13, 14),
+                null);
 
         //when
         mergeRequest.setMergedAt(LocalDateTime.of(2022,3,12,3,01,56));
 
         //then (we expect this wait time in seconds)
         assertThat(mergeRequest.waitTime()).isEqualTo(53322);
+
+    }
+
+    @Test
+    public void should_calculate_dev_time_of_merged_merge_request(){
+
+
+        //when
+        MergeRequest mergeRequest = new MergeRequest(-1,
+                -1,
+                MergeRequestStatus.MERGED,
+                LocalDateTime.of(2022, 3, 11, 12, 13, 14),
+                LocalDateTime.of(2022, 3, 10, 9, 2, 55));
+
+
+
+        //then (we expect this wait time in seconds)
+        assertThat(mergeRequest.devTime()).isEqualTo(97819);
 
     }
 

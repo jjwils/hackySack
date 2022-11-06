@@ -11,13 +11,19 @@ public class MergeRequest {
     private final long projectID;
     private LocalDateTime mergedAt;
     private final LocalDateTime openedAt;
+    private final LocalDateTime firstCommitAt;
 
-    public MergeRequest(final long id, final long projectID, MergeRequestStatus status, final LocalDateTime openedAt) {
+    public MergeRequest(final long id,
+                        final long projectID,
+                        MergeRequestStatus status,
+                        final LocalDateTime openedAt,
+                        final LocalDateTime firstCommitAt) {
 
         this.id = id;
         this.projectID = projectID;
         this.status = status;
         this.openedAt = openedAt;
+        this.firstCommitAt = firstCommitAt;
     }
 
     public long id() {
@@ -71,5 +77,9 @@ public class MergeRequest {
         }
 
         return -1;
+    }
+
+    public long devTime() {
+        return Duration.between(firstCommitAt, openedAt).getSeconds();
     }
 }

@@ -7,6 +7,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 import org.gitlab4j.api.Constants;
 import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.GitLabApiException;
+import org.gitlab4j.api.models.Commit;
 import org.gitlab4j.api.models.MergeRequestFilter;
 
 import java.time.LocalDate;
@@ -59,13 +60,22 @@ public class ConcreteGitLabRepository implements GitRepository {
             return gitLabApi.getMergeRequestApi()
                     .getMergeRequests(mergeRequestFilter)
                     .stream().map(apiMergeRequest -> {
-                                MergeRequest mergeRequest = new MergeRequest(apiMergeRequest.getId(),
-                                        apiMergeRequest.getProjectId(),
-                                        MergeRequestStatus.valueOf(apiMergeRequest.getState().toUpperCase()),
-                                        LocalDateTime.ofInstant(apiMergeRequest.getCreatedAt().toInstant(), ZoneId.systemDefault()));
+                        MergeRequest mergeRequest = null;
 
-                                mergeRequest.setMergedAt( LocalDateTime.ofInstant(apiMergeRequest.getMergedAt().toInstant(), ZoneId.systemDefault()));
-                                return mergeRequest;
+                        try {
+                            mergeRequest = new MergeRequest(apiMergeRequest.getId(),
+                                    apiMergeRequest.getProjectId(),
+                                    MergeRequestStatus.valueOf(apiMergeRequest.getState().toUpperCase()),
+                                    LocalDateTime.ofInstant(apiMergeRequest.getCreatedAt().toInstant(), ZoneId.systemDefault()),
+                                    LocalDateTime.ofInstant(gitLabApi.getMergeRequestApi().getCommits(apiMergeRequest.getProjectId(), apiMergeRequest.getIid().intValue(), 1).first().get(0).getCreatedAt().toInstant(), ZoneId.systemDefault()));
+
+                                mergeRequest.setMergedAt( LocalDateTime.ofInstant(apiMergeRequest.getMergedAt().toInstant(),
+                                        ZoneId.systemDefault()));
+
+                        } catch (GitLabApiException e) {
+                            throw new RuntimeException(e.getMessage());
+                        }
+                        return mergeRequest;
                             }).collect(Collectors.toList());
 
         } catch (GitLabApiException e) {
