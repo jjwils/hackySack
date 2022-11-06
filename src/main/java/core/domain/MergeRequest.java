@@ -19,7 +19,7 @@ public class MergeRequest {
         this.openedAt = openedAt;
     }
 
-    public long getId() {
+    public long id() {
         return id;
     }
 

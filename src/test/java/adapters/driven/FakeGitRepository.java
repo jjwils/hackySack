@@ -17,7 +17,7 @@ public class FakeGitRepository implements GitRepository {
 
     @Override
     public void addMergeRequest(MergeRequest mergeRequest) {
-        mergeRequestsMap.put(mergeRequest.getId(), mergeRequest);
+        mergeRequestsMap.put(mergeRequest.id(), mergeRequest);
     }
 
     @Override

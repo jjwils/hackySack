@@ -4,13 +4,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class MergeRequestAggregate {
-
-    final List<MergeRequest> mergeRequests;
-
-    public MergeRequestAggregate(List<MergeRequest> mergeRequests) {
-        this.mergeRequests = mergeRequests;
-    }
+public record MergeRequestAggregate(List<MergeRequest> mergeRequests) {
 
     public long cumulativeTime() {
 
