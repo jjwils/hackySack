@@ -1,7 +1,8 @@
 package adapters.driven;
 
-import ports.driven.GitRepository;
-import ports.driver.MergeRequest;
+import core.domain.MergeRequestStatus;
+import core.ports.driven.GitRepository;
+import core.domain.MergeRequest;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +17,7 @@ public class FakeGitRepository implements GitRepository {
 
     @Override
     public void addMergeRequest(MergeRequest mergeRequest) {
-        mergeRequestsMap.put(mergeRequest.getMergeRequestID(), mergeRequest);
+        mergeRequestsMap.put(mergeRequest.getId(), mergeRequest);
     }
 
     @Override
@@ -25,8 +26,8 @@ public class FakeGitRepository implements GitRepository {
     }
 
     @Override
-    public List<MergeRequest> getMergeRequests(long projectID, MergeRequest.STATUS status) {
-        return mergeRequestsMap.values().stream().filter(mergeRequest -> mergeRequest.getStatus() == MergeRequest.STATUS.MERGED).toList();
+    public List<MergeRequest> getMergeRequests(long projectID, MergeRequestStatus status) {
+        return mergeRequestsMap.values().stream().filter(mergeRequest -> mergeRequest.status() == MergeRequestStatus.MERGED).toList();
     }
 
 
