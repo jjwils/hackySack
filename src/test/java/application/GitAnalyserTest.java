@@ -220,6 +220,29 @@ public class GitAnalyserTest {
 
     }
 
+    @Test
+    public void should_calculate_flow_efficiency_of_merged_merge_request(){
+
+        long mergeRequestID = 200L;
+        long projectID = 100L;
+
+        MergeRequest mergeRequest = new MergeRequest(mergeRequestID,
+                projectID,
+                MergeRequestStatus.MERGED,
+                LocalDateTime.of(2022, 3, 11, 12, 13, 14),
+                LocalDateTime.of(2022, 3, 10, 9, 2, 55));
+
+
+        //when
+        mergeRequest.setMergedAt(LocalDateTime.of(2022,3,12,3,01,56));
+
+        //then (we expect this wait time in seconds)
+        //flow efficieny = (dev/dev+wait)*100
+        //(97819/97819+53322)*100
+        assertThat(mergeRequest.flowEfficiency()).isEqualTo(64);
+
+    }
+
 
 
 

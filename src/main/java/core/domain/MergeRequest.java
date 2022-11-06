@@ -1,5 +1,6 @@
 package core.domain;
 
+import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -81,5 +82,9 @@ public class MergeRequest {
 
     public long devTime() {
         return Duration.between(firstCommitAt, openedAt).getSeconds();
+    }
+
+    public int flowEfficiency() {
+        return (int) (((float)devTime() /(devTime() + waitTime())*100));
     }
 }
