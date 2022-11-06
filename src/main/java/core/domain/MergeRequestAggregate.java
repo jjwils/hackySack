@@ -12,13 +12,13 @@ public record MergeRequestAggregate(List<MergeRequest> mergeRequests) {
      */
     public long cumulativeTime() {
 
-        AtomicLong cumTime = new AtomicLong();
+        AtomicLong cumulativeTime = new AtomicLong();
 
         mergeRequests.forEach(mergeRequest -> {
-            cumTime.set(cumTime.get() + Duration.between(mergeRequest.openedAt(), mergeRequest.mergedAt()).toMinutes());
+            cumulativeTime.set(cumulativeTime.get() + Duration.between(mergeRequest.openedAt(), mergeRequest.mergedAt()).toMinutes());
         });
 
-        return cumTime.longValue();
+        return cumulativeTime.longValue();
     }
 
 

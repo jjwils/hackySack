@@ -140,6 +140,35 @@ public class GitAnalyserTest {
 
     }
 
+    @Test
+    public void should_not_calculate_wait_time_if_merge_request_not_merged(){
+
+        long mergeRequestID = 200L;
+        long projectID = 100L;
+
+        MergeRequest mergeRequest = new MergeRequest(mergeRequestID,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 3, 11, 12, 13, 14));
+
+        //then (we expect this wait time in seconds)
+        assertThat(mergeRequest.waitTime()).isEqualTo(-1);
+
+    }
+
+
+    @Test
+    public void should_calculate_wait_time_of_merged_merge_request(){
+
+        long mergeRequestID = 200L;
+        long projectID = 100L;
+
+        MergeRequest mergeRequest = new MergeRequest(mergeRequestID,projectID, MergeRequestStatus.MERGED, LocalDateTime.of(2022, 3, 11, 12, 13, 14));
+
+        //when
+        mergeRequest.setMergedAt(LocalDateTime.of(2022,3,12,3,01,56));
+
+        //then (we expect this wait time in seconds)
+        assertThat(mergeRequest.waitTime()).isEqualTo(53322);
+
+    }
 
 
 

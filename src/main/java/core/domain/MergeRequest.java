@@ -1,5 +1,6 @@
 package core.domain;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -60,6 +61,15 @@ public class MergeRequest {
                 ", projectID=" + projectID +
                 ", mergedAt=" + mergedAt +
                 ", openedAt=" + openedAt +
+                ", Wait Time in seconds=" + waitTime() +
                 '}';
+    }
+
+    public long waitTime() {
+        if (openedAt != null && mergedAt !=null) {
+            return Duration.between(openedAt, mergedAt).getSeconds();
+        }
+
+        return -1;
     }
 }

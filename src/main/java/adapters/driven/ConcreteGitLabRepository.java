@@ -45,7 +45,8 @@ public class ConcreteGitLabRepository implements GitRepository {
 
         MergeRequestFilter mergeRequestFilter = new MergeRequestFilter();
         mergeRequestFilter.setProjectId(projectID);
-        //hardcoded status
+
+        //lets only fetch merged, merge requests
         mergeRequestFilter.setState(Constants.MergeRequestState.MERGED);
 
         //lets only fetch mrs from 6 months back from today

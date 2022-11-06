@@ -5,6 +5,7 @@ import core.application.GitAnalyserService;
 import core.domain.MergeRequest;
 import core.domain.MergeRequestStatus;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,8 +28,10 @@ public class GitAnalyser {
         projectID = Long.valueOf(s);
         List<MergeRequest> mergeRequests = gitAnalyserService.getMergeRequests(projectID, MergeRequestStatus.MERGED);
 
-        mergeRequests.forEach(mergeRequest -> System.out.println(mergeRequest.toString()));
+        //ascending order of wait
+        mergeRequests.stream().sorted(Comparator.comparingLong(MergeRequest::waitTime)).forEach(System.out::println);
 
+        //cumulative time in different formats
         long cumulativeTimeInSeconds = gitAnalyserService.getCumulativeTime(projectID);
         System.out.println("Seconds: " + cumulativeTimeInSeconds);
         System.out.println("Minutes: " + cumulativeTimeInSeconds/60);
