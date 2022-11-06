@@ -51,4 +51,15 @@ public class MergeRequest {
         MergeRequest that = (MergeRequest) o;
         return id == that.id && projectID == that.projectID;
     }
+
+    @Override
+    public String toString() {
+        return "MergeRequest{" +
+                "status=" + status +
+                ", id=" + id +
+                ", projectID=" + projectID +
+                ", mergedAt=" + mergedAt +
+                ", openedAt=" + openedAt +
+                '}';
+    }
 }

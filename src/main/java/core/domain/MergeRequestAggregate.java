@@ -6,6 +6,10 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public record MergeRequestAggregate(List<MergeRequest> mergeRequests) {
 
+    /**
+     * The cumulutive time between opening and closing of all the merge requests
+     * @return time in seconds
+     */
     public long cumulativeTime() {
 
         AtomicLong cumTime = new AtomicLong();

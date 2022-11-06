@@ -21,8 +21,8 @@ public class FakeGitRepository implements GitRepository {
     }
 
     @Override
-    public MergeRequest getMergeRequest(long mergeRequestID) {
-        return mergeRequestsMap.get(mergeRequestID);
+    public MergeRequest getMergeRequest(long id) {
+        return mergeRequestsMap.get(id);
     }
 
     @Override

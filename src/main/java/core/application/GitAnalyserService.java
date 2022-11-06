@@ -10,6 +10,9 @@ import java.util.List;
 public class GitAnalyserService {
 
     final GitRepository gitRepository;
+    public GitAnalyserService(GitRepository gitRepository) {
+        this.gitRepository = gitRepository;
+    }
 
     public MergeRequest getMergeRequest(long mergeRequestID) {
 
@@ -17,9 +20,6 @@ public class GitAnalyserService {
 
     }
 
-    public GitAnalyserService(GitRepository gitRepository) {
-        this.gitRepository = gitRepository;
-    }
 
     public List<MergeRequest> getMergeRequests(long projectID, MergeRequestStatus status) {
         return gitRepository.getMergeRequests(projectID, status);
