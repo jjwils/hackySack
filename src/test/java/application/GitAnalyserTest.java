@@ -3,9 +3,9 @@ package application;
 
 import adapters.driven.FakeGitRepository;
 import core.domain.MergeRequestStatus;
-import core.application.GitAnalyserService;
-import org.junit.Test;
+import core.services.GitAnalyserService;
 import core.domain.MergeRequest;
+import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

@@ -1,7 +1,7 @@
 package adapters.driver.console;
 
 import adapters.driven.ConcreteGitLabRepository;
-import core.application.GitAnalyserService;
+import core.services.GitAnalyserService;
 import core.domain.MergeRequest;
 import core.domain.MergeRequestStatus;
 

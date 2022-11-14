@@ -1,4 +1,4 @@
-package core.application;
+package core.services;
 
 import core.domain.MergeRequestAggregate;
 import core.domain.MergeRequestStatus;
