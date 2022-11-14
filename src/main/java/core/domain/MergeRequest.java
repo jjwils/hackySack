@@ -69,6 +69,8 @@ public class MergeRequest {
                 ", mergedAt=" + mergedAt +
                 ", openedAt=" + openedAt +
                 ", Wait Time in seconds=" + waitTime() +
+                ", Dev Time in seconds=" + devTime() +
+                ", Flow Efficiency=" + flowEfficiency() +
                 '}';
     }
 
