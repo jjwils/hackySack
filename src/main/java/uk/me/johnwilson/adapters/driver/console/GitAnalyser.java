@@ -1,9 +1,9 @@
-package adapters.driver.console;
+package uk.me.johnwilson.adapters.driver.console;
 
-import adapters.driven.ConcreteGitLabRepository;
-import core.services.GitAnalyserService;
-import core.domain.MergeRequest;
-import core.domain.MergeRequestStatus;
+import uk.me.johnwilson.adapters.driven.ConcreteGitLabRepository;
+import uk.me.johnwilson.core.services.GitAnalyserService;
+import uk.me.johnwilson.core.domain.MergeRequest;
+import uk.me.johnwilson.core.domain.MergeRequestStatus;
 
 import java.util.Comparator;
 import java.util.List;

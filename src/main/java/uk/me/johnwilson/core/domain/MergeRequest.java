@@ -1,6 +1,5 @@
-package core.domain;
+package uk.me.johnwilson.core.domain;
 
-import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Objects;

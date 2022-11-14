@@ -1,4 +1,4 @@
-package application;
+package uk.me.johnwilson.application;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

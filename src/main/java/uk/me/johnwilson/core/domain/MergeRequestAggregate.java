@@ -1,4 +1,4 @@
-package core.domain;
+package uk.me.johnwilson.core.domain;
 
 import java.time.Duration;
 import java.util.List;

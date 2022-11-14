@@ -1,10 +1,10 @@
-package application;
+package uk.me.johnwilson.application.core.services;
 
 
-import adapters.driven.FakeGitRepository;
-import core.domain.MergeRequestStatus;
-import core.services.GitAnalyserService;
-import core.domain.MergeRequest;
+import uk.me.johnwilson.application.adapters.driven.FakeGitRepository;
+import uk.me.johnwilson.core.domain.MergeRequestStatus;
+import uk.me.johnwilson.core.services.GitAnalyserService;
+import uk.me.johnwilson.core.domain.MergeRequest;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;

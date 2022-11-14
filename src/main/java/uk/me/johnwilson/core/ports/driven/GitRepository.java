@@ -1,7 +1,7 @@
-package core.ports.driven;
+package uk.me.johnwilson.core.ports.driven;
 
-import core.domain.MergeRequest;
-import core.domain.MergeRequestStatus;
+import uk.me.johnwilson.core.domain.MergeRequest;
+import uk.me.johnwilson.core.domain.MergeRequestStatus;
 
 import java.util.List;
 

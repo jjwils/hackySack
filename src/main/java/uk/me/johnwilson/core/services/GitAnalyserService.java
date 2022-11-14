@@ -1,9 +1,9 @@
-package core.services;
+package uk.me.johnwilson.core.services;
 
-import core.domain.MergeRequestAggregate;
-import core.domain.MergeRequestStatus;
-import core.ports.driven.GitRepository;
-import core.domain.MergeRequest;
+import uk.me.johnwilson.core.domain.MergeRequestAggregate;
+import uk.me.johnwilson.core.domain.MergeRequestStatus;
+import uk.me.johnwilson.core.ports.driven.GitRepository;
+import uk.me.johnwilson.core.domain.MergeRequest;
 
 import java.util.List;
 

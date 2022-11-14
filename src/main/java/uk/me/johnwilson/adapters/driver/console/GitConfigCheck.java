@@ -1,4 +1,4 @@
-package adapters.driver.console;
+package uk.me.johnwilson.adapters.driver.console;
 
 import io.github.cdimascio.dotenv.Dotenv;
 

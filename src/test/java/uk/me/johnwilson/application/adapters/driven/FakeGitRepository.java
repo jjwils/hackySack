@@ -1,8 +1,8 @@
-package adapters.driven;
+package uk.me.johnwilson.application.adapters.driven;
 
-import core.domain.MergeRequestStatus;
-import core.ports.driven.GitRepository;
-import core.domain.MergeRequest;
+import uk.me.johnwilson.core.domain.MergeRequestStatus;
+import uk.me.johnwilson.core.ports.driven.GitRepository;
+import uk.me.johnwilson.core.domain.MergeRequest;
 
 import java.util.HashMap;
 import java.util.List;

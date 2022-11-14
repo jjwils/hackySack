@@ -1,13 +1,12 @@
-package adapters.driven;
+package uk.me.johnwilson.adapters.driven;
 
-import core.domain.MergeRequest;
-import core.domain.MergeRequestStatus;
-import core.ports.driven.GitRepository;
+import uk.me.johnwilson.core.domain.MergeRequest;
+import uk.me.johnwilson.core.domain.MergeRequestStatus;
+import uk.me.johnwilson.core.ports.driven.GitRepository;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.gitlab4j.api.Constants;
 import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.GitLabApiException;
-import org.gitlab4j.api.models.Commit;
 import org.gitlab4j.api.models.MergeRequestFilter;
 
 import java.time.LocalDate;

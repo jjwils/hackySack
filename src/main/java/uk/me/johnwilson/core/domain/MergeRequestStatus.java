@@ -1,3 +1,3 @@
-package core.domain;
+package uk.me.johnwilson.core.domain;
 
 public enum MergeRequestStatus {OPEN, MERGED}
